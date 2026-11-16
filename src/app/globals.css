@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf9f6;
+  --foreground: #1a1a1a;
+
+  --delamere-green: #1b3022;
+  --delamere-earth: #3c2f2f;
+  --delamere-cream: #f5f5dc;
+  --delamere-gold: #d4af37;
+  --delamere-dark: #0a1f11;
+  --delamere-leaf: #2d4c39;
+  --delamere-clay: #5d4037;
+  --delamere-sand: #e8e0d4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-brand-green: var(--delamere-green);
+  --color-brand-earth: var(--delamere-earth);
+  --color-brand-cream: var(--delamere-cream);
+  --color-brand-gold: var(--delamere-gold);
+  --color-brand-dark: var(--delamere-dark);
+  --color-brand-leaf: var(--delamere-leaf);
+  --color-brand-clay: var(--delamere-clay);
+  --color-brand-sand: var(--delamere-sand);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), serif;
+  font-weight: 700;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--delamere-gold) 30%, transparent);
+  color: var(--delamere-dark);
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-ken-burns {
+  animation: ken-burns 20s ease-in-out infinite alternate;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--delamere-gold), #f0d78c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-padding {
+  @apply px-6 py-20 md:px-12 md:py-28 lg:px-20;
+}
+
+.container-wide {
+  @apply mx-auto max-w-7xl;
+}
+
+.container-narrow {
+  @apply mx-auto max-w-4xl;
+}
+
+.overlay-dark {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 31, 17, 0.55) 0%,
+    rgba(10, 31, 17, 0.75) 50%,
+    rgba(10, 31, 17, 0.9) 100%
+  );
+}
+
+.overlay-radial {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    rgba(10, 31, 17, 0.4) 100%
+  );
+}
